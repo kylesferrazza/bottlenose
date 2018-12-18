@@ -163,13 +163,7 @@ function makeFriendlyDate(str, showTime) {
 }
 
 $(function() {
-  $('[data-toggle="tooltip"]').each(function(elt) {
-    $(this).tooltip({
-      animated: 'fade',
-      placement: $(this).data("placement") || 'right',
-      html: true
-    });
-  });
+  $('[data-toggle="tooltip"]').each(function(elt) { activateTooltip($(this)); });
 
   $('.local-time').each(function(_) {
     $(this).text(makeFriendlyDate($(this).text(), true));
@@ -177,6 +171,14 @@ $(function() {
 
   $("input.numeric").on("keydown", validateNumericInput);
 });
+
+function activateTooltip($elt) {
+  return $elt.tooltip({
+    animated: 'fade',
+    placement: $elt.data("placement") || 'right',
+    html: true
+  });
+}
 
 
 function activateSpinner(obj, options) {
