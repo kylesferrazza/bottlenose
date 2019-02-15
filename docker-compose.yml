@@ -1,0 +1,9 @@
+version: '3'
+services:
+  bottlenose:
+    build: .
+    volumes:
+      - .:/bottlenose
+      - ./tmp/db:/var/lib/postgresql/data
+    ports:
+      - "3000:3000"
