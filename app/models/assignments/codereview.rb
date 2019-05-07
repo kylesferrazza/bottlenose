@@ -14,9 +14,8 @@ class Codereview < Assignment
     !(prevent_late_submissions.empty?)
   end
   def prevent_late_submissions=(aid)
-    i = self.related_interlocks.find_or_initialize_by(assignment: self,
-                                                      constraint: Interlock::constraints[:no_submission_after_viewing])
-    i.assignment_id = aid
+    self.related_interlocks.find_or_initialize_by(assignment_id: aid,
+                                                  constraint: Interlock::constraints[:no_submission_after_viewing])
   end
 
   def review_count
@@ -61,7 +60,7 @@ class Codereview < Assignment
   protected
   def teamset_consistency
     if self.review_target == "self"
-      if (self.team_subs && (self.teamset_id != self.related_assignment.teamset_id))
+      if (self.team_subs && (self.related_assignment && self.teamset_id != self.related_assignment.teamset_id))
         self.errors.add(:base, "A self-review must have consistent teamsets with the underlying assignment")
         return false
       end
