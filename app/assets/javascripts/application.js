@@ -11,6 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery3
+//= require jquery-migrate/dist/jquery-migrate.js
 //= require jquery-ui/widgets/draggable
 //= require jquery-ui/widgets/resizable
 //= require jquery-ui/widgets/sortable
