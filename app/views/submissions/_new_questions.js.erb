@@ -1,5 +1,5 @@
 $(function() {
-  $('button.btn.answer').click(function() {
+  $('button.btn.answer').on("click", function() {
     $('button.btn.answer[data-id="'+$(this).data('id')+'"]').removeClass('active');
     $(this).addClass('active');
     $('input#'+$(this).data('id')).val($(this).text());

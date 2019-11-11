@@ -48,7 +48,7 @@
 
 
 function enableShowUsernames(elts) {
-  $(elts).click(function(){ 
+  $(elts).on("click", function(){ 
     $(this).toggleClass("active");
     $("#" + $(this).data("target")).toggleClass("showusernames");
   });
@@ -180,7 +180,7 @@ function activate_file_picker($e) {
     $e.find(".remove-custom-file").prop('disabled', false).removeClass("btn-default").addClass("btn-warning");
     $e.find("input.remove-custom-file").val('');
   });
-  $e.find(".remove-custom-file").click(function() {
+  $e.find(".remove-custom-file").on("click", function() {
     $e.find("input.custom-file").replaceWith(
       $e.find("input.custom-file").clone(true));
     $(this).prop('disabled', true).addClass("btn-default").removeClass("btn-warning");
