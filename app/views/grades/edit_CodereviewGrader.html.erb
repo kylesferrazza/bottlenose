@@ -112,7 +112,7 @@
     e.stopPropagation();
     e.preventDefault();
   });
-  $("form").submit(ensureValidNumericInputOnSubmit);
+  $("form").on("submit", ensureValidNumericInputOnSubmit);
 </script>
 </div>
 <% end %><%# form-for %>
