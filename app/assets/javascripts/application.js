@@ -278,7 +278,7 @@ function activateSpinner(obj, options) {
     input.prop("disabled", false);
     validate();
   });
-  input.bind("paste", function(e) { e.preventDefault(); });
+  input.on("paste", function(e) { e.preventDefault(); });
 
   $(upArrow).on('mousedown', function() {
     if (input.prop("disabled")) return;
@@ -310,7 +310,7 @@ function makeSpinner(options) {
   var input = $("<input>")
       .addClass("form-control numeric")
       .val(options.val || 0)
-      .bind("paste", function(e) { e.preventDefault(); });
+      .on("paste", function(e) { e.preventDefault(); });
   if (options.klass !== undefined)
     input.addClass(options.klass);
   if (options.max !== undefined)   input.data("max", options.max);
